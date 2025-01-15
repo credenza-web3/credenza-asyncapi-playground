@@ -1,2 +1,2 @@
-import ConnectionComponent from './connection.svelte' 
-export { ConnectionComponent }
+import ConnectionComponent from './connection.svelte';
+export { ConnectionComponent };

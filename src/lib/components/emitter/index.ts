@@ -1,2 +1,2 @@
-import EmitterComponent from "./emitter.svelte";
-export {EmitterComponent};
+import EmitterComponent from './emitter.svelte';
+export { EmitterComponent };

@@ -1,2 +1,2 @@
-import JsonInput from "./json-input.svelte";
-export {JsonInput};
+import JsonInput from './json-input.svelte';
+export { JsonInput };
