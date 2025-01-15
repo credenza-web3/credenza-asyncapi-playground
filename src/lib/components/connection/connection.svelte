@@ -15,9 +15,13 @@
   });
 
   async function connect() {
-    if (!connectionString || !connectionOptions) return;
-    await connectSocketIO(connectionString, connectionOptions);
-    localStorage.setItem('connectionString', connectionString);
+    try {
+      if (!connectionString || !connectionOptions) return;
+      await connectSocketIO(connectionString, connectionOptions);
+      localStorage.setItem('connectionString', connectionString);
+    } catch (err) {
+      alert('Connection failed: ' + (err as Error).message)
+    }
   }
 
   function saveConnectionOptions() {
@@ -29,7 +33,6 @@
     const lsConnectionOptions = localStorage.getItem('connectionOptions');
     if (lsConnectionOptions) connectionOptions = JSON.parse(lsConnectionOptions);
     const lsConnectionString = localStorage.getItem('connectionString');
-    console.log(lsConnectionString);
     if (lsConnectionString) connectionString = lsConnectionString;
   });
 </script>
@@ -45,8 +48,8 @@
     {#if $socketStore}
       <button class="btn" onclick={disconnectSocketIO}>Disconnect</button>
     {:else}
-      <button class="btn" onclick={() => optsDialog.showModal()}>Options</button>
-      <button class="btn" onclick={() => connect()}>Connect</button>
+      <button class="btn ml-1" onclick={() => optsDialog.showModal()}>Options</button>
+      <button class="btn ml-1" onclick={() => connect()}>Connect</button>
     {/if}
 
     <dialog class="modal" bind:this={optsDialog}>

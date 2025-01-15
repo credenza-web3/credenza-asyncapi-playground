@@ -14,6 +14,9 @@ export async function connectSocketIO(url: string, opts: SocketOptions) {
       socketStore.set(socket);
       resolve(true);
     });
+    setTimeout(() => {
+      reject(new Error('Cannot establish connection within 5 seconds'));
+    }, 5000)
   });
   console.log('Socket connected');
   socket.on('disconnect', () => {
