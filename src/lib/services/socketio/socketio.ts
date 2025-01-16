@@ -29,4 +29,5 @@ export async function disconnectSocketIO() {
   const socket = get(socketStore);
   socket?.removeAllListeners();
   socket?.disconnect();
+  socketStore.set(null);
 }
