@@ -24,6 +24,20 @@
     }
   }
 
+  function handleTab(event: KeyboardEvent): void {
+    if (event.key !== "Tab") return
+    
+    event.preventDefault();
+    const textarea = event.target as HTMLTextAreaElement;
+    const start = textarea.selectionStart;
+    const end = textarea.selectionEnd;
+
+    const value = textarea.value;
+    textarea.value = value.slice(0, start) + "  " + value.slice(end);
+
+    textarea.selectionStart = textarea.selectionEnd = start + 2;
+  }
+
   $effect(() => {
     if (value) {
       try {
@@ -41,8 +55,9 @@
   class="h-auto w-full cursor-text resize-none p-3 text-sm {error ? 'border-red-500' : ''}"
   rows={rows || 15}
   value={strInput}
-  oninput={handleInput}
   placeholder={placeholder || 'Enter JSON here...'}
+  oninput={handleInput}
+  onkeydown={handleTab}
 ></textarea>
 {#if error}
   <div class="error">Invalid JSON: {error}</div>
