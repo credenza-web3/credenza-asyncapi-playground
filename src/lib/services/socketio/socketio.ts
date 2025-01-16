@@ -27,5 +27,6 @@ export async function connectSocketIO(url: string, opts: SocketOptions) {
 
 export async function disconnectSocketIO() {
   const socket = get(socketStore);
+  socket?.removeAllListeners();
   socket?.disconnect();
 }

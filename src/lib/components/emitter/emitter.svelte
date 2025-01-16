@@ -61,7 +61,6 @@
 
 {#if $socketStore}
   <section class="pt-2">
-    <section>Create Request:</section>
     <div role="tablist" class="tabs tabs-bordered flex">
       {#each requestList as requestItem}
         <button
