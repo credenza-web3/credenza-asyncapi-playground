@@ -20,7 +20,7 @@
       await connectSocketIO(connectionString, connectionOptions);
       localStorage.setItem('connectionString', connectionString);
     } catch (err) {
-      alert('Connection failed: ' + (err as Error).message)
+      alert('Connection failed: ' + (err as Error).message);
     }
   }
 

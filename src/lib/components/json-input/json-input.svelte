@@ -25,15 +25,15 @@
   }
 
   function handleTab(event: KeyboardEvent): void {
-    if (event.key !== "Tab") return
-    
+    if (event.key !== 'Tab') return;
+
     event.preventDefault();
     const textarea = event.target as HTMLTextAreaElement;
     const start = textarea.selectionStart;
     const end = textarea.selectionEnd;
 
     const value = textarea.value;
-    textarea.value = value.slice(0, start) + "  " + value.slice(end);
+    textarea.value = value.slice(0, start) + '  ' + value.slice(end);
 
     textarea.selectionStart = textarea.selectionEnd = start + 2;
   }
