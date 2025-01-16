@@ -91,10 +91,10 @@
     </table>
   </section>
   {/if}
-  <section class="flex w-full justify-end">
-    <button class="btn" onclick={addSubscription}>Add</button>
+  <section class="flex w-full justify-end pt-1">
+    <button class="btn w-full" class:btn-sm={subscriptions.length} onclick={addSubscription}>Add Event listener</button>
   </section>
-  <section class="overflow-y-scroll">
+  <section class="overflow-y-scroll pt-1">
     <JsonInput value={events} disabled={true} rows={30} />
   </section>  
 </section>
