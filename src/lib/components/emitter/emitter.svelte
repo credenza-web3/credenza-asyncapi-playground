@@ -10,7 +10,7 @@
 
   function emitEvent() {
     response = { loading: true };
-    $socketStore?.emit(activeRequest.topic, activeRequest.data, (result: any) => {
+    $socketStore?.emit(activeRequest.topic.trim(), activeRequest.data, (result: any) => {
       result && (response = result);
     });
   }
